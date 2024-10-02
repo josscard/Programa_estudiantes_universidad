@@ -27,16 +27,16 @@ public class StudentController {
     }
 
     @GetMapping("/get_percentage_male")
-    public String getPercentageOfStudentsMale(){
-        ArrayList<Student> students = studentService.getStudents();
+    public String getPercentageOfStudentsMale(ArrayList<Student> students){
+        students=studentService.getStudents();
         float percentage = 0;
         float cantMale= 0;
 
-        for(int i = 0; i< students.size(); i++){
+        for(int i=0; i<students.size(); i++){
             if(students.get(i).getGender()== 2){
                 cantMale+=1;
 
-                percentage= ((cantMale / students.size()) *100);
+                percentage= ((cantMale /students.size()) *100);
             }
 
         }
@@ -45,16 +45,16 @@ public class StudentController {
     }
 
     @GetMapping("/get_percentage_female")
-    public String getPercentageOfStudentsFemale(){
-        ArrayList<Student> students = studentService.getStudents();
+    public String getPercentageOfStudentsFemale(ArrayList<Student> students){
+        students=studentService.getStudents();
         float percentage = 0;
         float cantMale= 0;
 
-        for(int i = 0; i< students.size(); i++){
+        for(int i=0; i<students.size(); i++){
             if(students.get(i).getGender()== 1){
                 cantMale+=1;
 
-                percentage= ((cantMale / students.size()) *100);
+                percentage= ((cantMale /students.size()) *100);
             }
 
         }
@@ -63,19 +63,19 @@ public class StudentController {
     }
 
     @GetMapping("/get_percentage_male_work")
-    public String getPercentageMaleWorking(){
-        ArrayList<Student> students = studentService.getStudents();
+    public String getPercentageMaleWorking(ArrayList<Student> students){
+        students=studentService.getStudents();
         float percentageMaleWork = 0;
         double SalaryMale = 0;
         float cantMaleWork= 0;
         double cantSalaryWork = 0;
 
-        for(int i = 0; i< students.size(); i++){
+        for(int i=0; i<students.size(); i++){
             if(students.get(i).getWork()== 1 && students.get(i).getGender()== 1){
                 cantMaleWork+=1;
                 cantSalaryWork+= students.get(i).getSalary();
 
-                percentageMaleWork= ((cantMaleWork / students.size()) *100);
+                percentageMaleWork= ((cantMaleWork /students.size()) *100);
                 SalaryMale=((cantSalaryWork/cantMaleWork));
             }
 
@@ -87,19 +87,19 @@ public class StudentController {
     }
 
     @GetMapping("/get_percentage_female_work")
-    public String getPercentageFemaleWorking(){
-        ArrayList<Student> students = studentService.getStudents();
+    public String getPercentageFemaleWorking(ArrayList<Student> students){
+        students=studentService.getStudents();
         float percentageFemaleWork = 0;
         double SalaryFemale = 0;
         float cantFemaleWork= 0;
         double cantSalaryWork = 0;
 
-        for(int i = 0; i< students.size(); i++){
+        for(int i=0; i<students.size(); i++){
             if(students.get(i).getWork()== 1 && students.get(i).getGender()== 2){
                 cantFemaleWork+=1;
                 cantSalaryWork+= students.get(i).getSalary();
 
-                percentageFemaleWork= ((cantFemaleWork / students.size()) *100);
+                percentageFemaleWork= ((cantFemaleWork /students.size()) *100);
                 SalaryFemale=((cantSalaryWork/cantFemaleWork));
             }
 
